@@ -47,12 +47,10 @@ plot.dw_groupmeans <- function(
     caption_text <- .build_caption(x)
   }
   trimmed <- datawizard::data_filter(x, Category != "Total")
-  print(trimmed)
+
   if ("CI_low" %in% names(trimmed)) {
     lower_lim <- .9 * min(trimmed$CI_low)
     upper_lim <- 1.1 * max(trimmed$CI_high)
-    print(upper_lim)
-    print(lower_lim)
   }
 
   p <- ggplot2::ggplot(trimmed)
@@ -119,13 +117,12 @@ plot.dw_groupmeans_list <- function(
   x_long <- do.call(rbind, x)
 
   trimmed <- datawizard::data_filter(x_long, Category != "Total")
-  print(head(trimmed))
+
   if ("CI_low" %in% names(trimmed)) {
     lower_lim <- .9 * min(trimmed$CI_low)
     upper_lim <- 1.1 * max(trimmed$CI_high)
   }
-  print(upper_lim)
-  print(lower_lim)
+
   p <- ggplot2::ggplot(trimmed)
   plotlist <- list()
   plotlist[[1]] <- ggplot2::aes(x = .data$Category, y = .data$Mean)
