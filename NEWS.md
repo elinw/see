@@ -4,8 +4,6 @@
 
 * Added plot method for prior predictive checks, from the `performance::check_priors()`
   function.
-  
-* Added plot method for `datawizard::means_by_groups()` objects.
 
 * The `plot()` method for `performance::check_dag()` gains a `size_arrow` argument,
   to control the size of arrows in the DAG.
@@ -17,7 +15,6 @@
 
 * `plot()` for `model_parameters()` with *lavaan* objects did not work when the
   object contained no `loadings` component.
-  
 
 # see 0.14.0
 
