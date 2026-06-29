@@ -21,7 +21,7 @@ test_that("`plot.dw_groupmeans_list()` works with a list of length 2", {
   expect_identical(length(p), 1L)
   expect_identical(
     attr(p, "labels")[[2]],
-    "\nAnova: R2=0.401; adj.R2=0.393; F=49.160; p<.001\n\nAnova: R2=0.619; adj.R2=0.614; F=119.265; p<.001\n"
+    "\nSepal.Width: Anova: R2=0.401; adj.R2=0.393; F=49.160; p<.001\nSepal.Length: Anova: R2=0.619; adj.R2=0.614; F=119.265; p<.001"
   )
 })
 
@@ -34,7 +34,7 @@ test_that("`plot.dw_groupmeans()` with no dots arguments works", {
   expect_s3_class(p, "gg")
   expect_equal(
     attr(p, "labels")[[2]],
-    "\nAnova: R2=0.401; adj.R2=0.393; F=49.160; p<.001\n"
+    "\nAnova: R2=0.401; adj.R2=0.393; F=49.160; p<.001"
   )
 })
 

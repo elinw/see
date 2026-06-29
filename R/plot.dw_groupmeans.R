@@ -45,6 +45,8 @@ plot.dw_groupmeans <- function(
   caption <- dotargs[["caption"]]
   if (isTRUE(caption)) {
     caption_text <- .build_caption(x)
+  } else {
+    caption_text = ""
   }
   trimmed <- datawizard::data_filter(x, Category != "Total")
 
@@ -145,14 +147,15 @@ plot.dw_groupmeans_list <- function(
     )
   }
 
-  p
+  p <- p + plotlist
+  print(p)
 }
 
 
 .build_caption <- function(x, label = NULL) {
   caption <- paste0(
     "\n",
-    label,
+    ifelse(is.null(label), "", paste0(label, ": ")),
     "Anova: R2=",
     insight::format_value(attributes(x)$r2, digits = 3),
     "; adj.R2=",
