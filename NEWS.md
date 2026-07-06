@@ -1,4 +1,4 @@
-# see (devel)
+# see 0.14.1
 
 ## Changes
 
@@ -8,9 +8,11 @@
 * The `plot()` method for `performance::check_dag()` gains a `size_arrow` argument,
   to control the size of arrows in the DAG.
 
+* Added plot method for `datawizard::means_by_groups()` objects.
+
 ## Bug fixes
 
-* The `type` argument in `performance::check_predictons()` was not recognized in
+* The `type` argument in `performance::check_predictions()` was not recognized in
   the `plot()` method.
 
 * `plot()` for `model_parameters()` with *lavaan* objects did not work when the
@@ -206,18 +208,18 @@
 
 ## Major changes
 
-- New `plot()` method for simulated residuals (implemented in the _performance_
+* New `plot()` method for simulated residuals (implemented in the _performance_
   package).
 
-- `plot()` for `check_model()` was revised and now includes more accurate Q-Q
+* `plot()` for `check_model()` was revised and now includes more accurate Q-Q
   plots for non-Gaussian models.
 
 ## Minor Changes
 
-- `plot.check_model()` now passes arguments `size_point` and `size_line` to the
+* `plot.check_model()` now passes arguments `size_point` and `size_line` to the
   posterior predictive check plot.
 
-- Minor changes regarding the latest update of _ggplot2_.
+* Minor changes regarding the latest update of _ggplot2_.
 
 # see 0.8.2
 
@@ -318,7 +320,7 @@
 * Updates docs and tests for `{ggplot2}` release (`3.4.0`).
 
 * New function `scale_color_colorhex()` provides color scales based on palettes
-  from <https://www.color-hex.com> (#245).
+  from color-hex.com (#245).
 
 * The default for the smoothing bandwidth from `plot.check_predictions()` has
   changed from `"nrd0"` to `"nrd"`, which seems to produce better fitting plots
