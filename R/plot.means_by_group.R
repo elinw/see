@@ -37,6 +37,7 @@ plot.see_dw_groupmeans <- function(
   caption_text <- if (isTRUE(caption)) .build_caption(x) else ""
 
   trimmed <- x[x$Category != "Total", ]
+  trimmed$Category <- factor(trimmed$Category, levels = trimmed$Category)
 
   p <- ggplot2::ggplot(
     trimmed,
