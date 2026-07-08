@@ -98,7 +98,8 @@ plot.see_dw_groupmeans_list <- function(
   })
 
   x_long <- do.call(rbind, x)
-  trimmed <- trimmed <- x_long[x_long$Category != "Total", ]
+  trimmed <- x_long[x_long$Category != "Total", ]
+  trimmed$Category <- as.factor(trimmed$Category)
 
   p <- ggplot2::ggplot(
     trimmed,
