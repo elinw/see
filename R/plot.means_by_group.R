@@ -37,8 +37,15 @@ plot.see_dw_groupmeans <- function(
   caption_text <- if (isTRUE(caption)) .build_caption(x) else ""
 
   trimmed <- x[x$Category != "Total", ]
-  trimmed$Category <- factor(trimmed$Category, levels = trimmed$Category)
-
+  trimmed$Category <- factor(
+    trimmed$Category,
+    levels = unique(trimmed$Category)
+  )
+  if (length(trimmed$Category) == length(unique(trimmed$Category))) {
+    trimmed$Category <- factor(trimmed$Category, levels = trimmed$Category)
+  } else {
+    stop("Duplicate category names are present.")
+  }
   p <- ggplot2::ggplot(
     trimmed,
     ggplot2::aes(x = .data$Category, y = .data$Mean)
@@ -100,8 +107,10 @@ plot.see_dw_groupmeans_list <- function(
 
   x_long <- do.call(rbind, x)
   trimmed <- x_long[x_long$Category != "Total", ]
-  trimmed$Category <- factor(trimmed$Category, levels = trimmed$Category)
-
+  trimmed$Category <- factor(
+    trimmed$Category,
+    levels = unique(trimmed$Category)
+  )
   p <- ggplot2::ggplot(
     trimmed,
     ggplot2::aes(x = .data$Category, y = .data$Mean)
