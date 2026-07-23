@@ -41,11 +41,6 @@ plot.see_dw_groupmeans <- function(
     trimmed$Category,
     levels = unique(trimmed$Category)
   )
-  if (length(trimmed$Category) == length(unique(trimmed$Category))) {
-    trimmed$Category <- factor(trimmed$Category, levels = trimmed$Category)
-  } else {
-    stop("Duplicate category names are present.")
-  }
   p <- ggplot2::ggplot(
     trimmed,
     ggplot2::aes(x = .data$Category, y = .data$Mean)
